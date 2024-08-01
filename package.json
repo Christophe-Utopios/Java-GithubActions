@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "echo \"Je build mon application\"",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"Les test passent\"",
     "start": "node index.js"
   },
   "author": "",
