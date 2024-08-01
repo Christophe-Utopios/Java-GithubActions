@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Récupération de notre application
-        uses: action/checkout@V4
+        uses: actions/checkout@v4
       - name: installation des dépendance
         run: npm ci
       - name: build de l'application
