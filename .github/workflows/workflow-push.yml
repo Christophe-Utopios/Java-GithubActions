@@ -1,0 +1,14 @@
+name: Workflow lors d'un push
+# Le workflow va se déclencher à chaque push de mon application
+on: push
+jobs:
+  mon_job:
+    name: Build test et run application
+    runs-on: ubuntu-latest
+    steps:
+      - name: installation des dépendance
+        run: npm ci
+      - name: build de l'application
+        run: npm run build
+      - name: test
+        run: npm run test
