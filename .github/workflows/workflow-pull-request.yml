@@ -2,6 +2,7 @@ name: S'exécute lors d'une pull request
 on:
   pull_request:
     types: opened # C'est un des types par défaut
+  workflow_dispatch:
 jobs:
   exemple:
     runs-on: ubuntu-latest
