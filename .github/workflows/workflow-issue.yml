@@ -23,3 +23,13 @@ jobs:
         run: |
           echo "Nouvelle issue - $TITRE"
           echo "Utilisation d'une variable d'environnement intermédiaire pour atténuer le risque d'injection de code"
+  variables:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mes variables d'environement
+        env:
+          MA_VARIABLE: ${{ vars.MA_VARIABLE_NON_SECRETE }}
+          MON_SECRET: ${{ secrets.MON_SECRET }}
+        run: |
+          echo "Le secret est $MON_SECRET"
+          echo "Ma variable : $MA_VARIABLE"
