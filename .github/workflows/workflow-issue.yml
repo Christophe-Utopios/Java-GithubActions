@@ -17,4 +17,9 @@ jobs:
   title:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Nouvelle issue - ${{ github.event.issue.title }}"
+      - name: Avec une variable d'environement
+        env:
+          TITRE: ${{ github.event.issue.title }}
+        run: |
+          echo "Nouvelle issue - $TITRE"
+          echo "Utilisation d'une variable d'environnement intermédiaire pour atténuer le risque d'injection de code"
