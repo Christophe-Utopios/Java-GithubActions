@@ -6,6 +6,7 @@ on: workflow_dispatch
 jobs:
   # Définition de la première action à réaliser
   premier-job:
+    name: mon premier job
     # On précise le système d'exploitation
     runs-on: ubuntu-latest
     # On écrit ici les étapes pour notre action.
@@ -15,3 +16,11 @@ jobs:
         run: echo "Hello world !"
       - name: Dit au revoir
         run: echo "Goodbye !"
+
+  # Définition de le seconde action à réaliser
+  second-job:
+    name: Mon second job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mon étape
+        run: echo "Je suis un second job !"
