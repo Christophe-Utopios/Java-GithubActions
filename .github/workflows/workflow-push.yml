@@ -6,6 +6,8 @@ jobs:
     name: Build test et run application
     runs-on: ubuntu-latest
     steps:
+      - name: Récupération de notre application
+        uses: action/checkout@V4
       - name: installation des dépendance
         run: npm ci
       - name: build de l'application
