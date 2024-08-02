@@ -6,15 +6,17 @@ on:
       # Définir les sorties utilisables dans un autre workflow
       variable1:
         description: Premier output
-        value: ${{ steps.etape1.outputs.VAR1 }} # On va chercher notre variable 1 depuis le fichier de sortie de notre étape.
+        value: ${{ jobs.job1.outputs.sortie1 }} # On va chercher notre variable 1 depuis le fichier de sortie de notre étape.
       variable2:
         description: Second output
-        value: ${{ steps.etape2.outputs.VAR2 }}
-  workflow_dispatch:
+        value: ${{ jobs.job1.outputs.sortie2 }}
 jobs:
   job1:
     name: Génère des paramètres de sortie
     runs-on: ubuntu-latest
+    outputs:
+      sortie1: ${{ steps.etape1.outputs.VAR1 }}
+      sortie2: ${{ steps.etape2.outputs.VAR2 }}
     steps:
       - name: set VAR1
         id: etape1
@@ -30,4 +32,4 @@ jobs:
     needs: job1
     steps:
       - name: echo sortie1 sortie2
-        run: echo ${{ needs.job1.outputs.VAR1 }} ${{ needs.job1.outputs.VAR2 }}
+        run: echo ${{ needs.job1.outputs.sortie1 }} ${{ needs.job1.outputs.sortie2 }}
