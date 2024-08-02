@@ -46,11 +46,20 @@ jobs:
     runs-on: ubuntu-latest
     needs: download
     if: ${{ github.ref == 'refs/heads/main' }}
+    env:
+      USERNAME: ${{ secrets.DOCKER_USERNAME }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
       - name: Login docker hub
         uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build docker image
+        run: docker build -t $USERNAME/my_node_app
+
+      - name: Push docker image
+        run: docker push $USERNAME/my_node_app
