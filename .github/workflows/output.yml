@@ -10,6 +10,7 @@ on:
       variable2:
         description: Second output
         value: ${{ steps.etape2.outputs.VAR2 }}
+  workflow_dispatch:
 jobs:
   job1:
     name: Génère des paramètres de sortie
