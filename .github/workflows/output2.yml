@@ -1,0 +1,15 @@
+name: Appelle du 1er workflow et on utilise les sorties
+on:
+  workflow_dispatch:
+jobs:
+  premier-job:
+    name: appelle du 1er workflow
+    uses: Christophe-Utopios/Java-GithubActions/.github/workflows/output.yml@main
+
+  second-job:
+    name: Affiche les outputs du 1er workflow
+    runs-on: ubuntu-latest
+    needs: premier-job
+    steps:
+      - name: Retourne "hello world"
+        run: echo "${{ needs.premier-job.outputs.variable1 }} ${{ needs.premier-job.outputs.variable2 }}"
