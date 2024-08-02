@@ -4,13 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "echo \"Je build mon application\"",
+    "build": "webpack",
     "test": "echo \"Les test passent\"",
-    "start": "node index.js"
+    "start": "node ./src/index.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "moment": "^2.30.1"
+  },
+  "devDependencies": {
+    "webpack-cli": "^5.1.4"
   }
 }
