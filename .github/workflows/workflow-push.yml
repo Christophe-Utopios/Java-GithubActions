@@ -19,6 +19,7 @@ jobs:
         run: npm run build
       - name: test
         run: npm run test
+        continue-on-error: false # Le job échouera si les tests échouent
       - name: Upload du build
         uses: actions/upload-artifact@v4
         with:
