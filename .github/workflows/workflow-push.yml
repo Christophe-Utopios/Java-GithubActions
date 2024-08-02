@@ -8,6 +8,11 @@ jobs:
     steps:
       - name: Récupération de notre application
         uses: actions/checkout@v4
+      - name: cache npm
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-package-${{ hashFiles('**/package-lock.json') }}
       - name: installation des dépendance
         run: npm ci
       - name: build de l'application
